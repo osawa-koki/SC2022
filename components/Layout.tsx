@@ -26,8 +26,7 @@ const Layout = ({ children, title = default_title }: Props) => (
     <main>
       {children}
     </main>
-    <footer>
-    </footer>
+    <footer>🥺 SC2022 (情報処理安全確保支援士試験対策) 🥺</footer>
   </div>
 );
 
