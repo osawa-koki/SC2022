@@ -161,6 +161,7 @@
   svg {
     display: block;
     max-width: 600px;
+    max-height: 600px;
     .pc {
       fill:#000000;fill-opacity:1;stroke:none;
     }
@@ -245,6 +246,10 @@
   #ssltls_protocol {
     border-collapse: separate;
     background-color: black;
+    th, td {
+      background-color: white;
+      text-align: center;
+    }
   }
   .red {
     color: red;;
