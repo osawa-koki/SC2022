@@ -15,7 +15,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     PutHtml();
-  }, [Page]);
+  }, [Index]);
 
   function SetPageOnUri(page: number) {
     history.pushState(null, '', `?page=${page}`);
@@ -32,7 +32,6 @@ const IndexPage = () => {
     } else {
       SetPageOnUri(page_number); // TODO: URLパラメタが更新されない。
     }
-    setIndex(page_number);
     let title = Page[page_number].title;
     let prefix = isProd ? Setting.IMG_ROOT_PATH: '';
     try {
