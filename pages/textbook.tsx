@@ -15,7 +15,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     PutHtml();
-  }, [Index, Page]);
+  }, [Page]);
 
   function SetPageOnUri(page: number) {
     history.pushState(null, '', `?page=${page}`);
