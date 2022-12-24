@@ -16,13 +16,29 @@ const IndexPage = () => {
     PutHtml();
   }, [Index, Page]);
 
+  function SetPageOnUri(page: number) {
+    history.pushState(null, '', `?page=${page}`);
+  }
+
   function PutHtml() {
+    // Pageパラメタからページ番号を取得
+    const uri = new URL(window.location.href);
+    const page = uri.searchParams.get('page');
+    let page_number = 0;
+    // ページが有効であれば
+    if (page && !isNaN(Number(page)) && Number(page) >= 0 && Number(page) < Page.length) {
+      page_number = Number(page);
+    } else {
+      SetPageOnUri(page_number); // TODO: URLパラメタが更新されない。
+    }
+    setIndex(page_number);
+    let title = Page[page_number].title;
     if (isProd) {
-      fetch(`/textbook/${Page[Index].title}.html`)
+      fetch(`/textbook/${title}.html`)
         .then(response => response.text())
         .then(text => setHtml(text));
     } else {
-      fetch(`/textbook/${Page[Index].title}.html`)
+      fetch(`/textbook/${title}.html`)
         .then(response => response.text())
         .then(text => setHtml(text.replaceAll('/SC2022/textbook.img', '/textbook.img')));
     }
@@ -34,8 +50,8 @@ const IndexPage = () => {
         <div dangerouslySetInnerHTML={ { __html: Html } } />
       </div>
       <div>
-        {Index > 0 && <Button id='ButtonPrev' variant="success" onClick={() => setIndex(Index - 1)}>前へ</Button>}
-        {Index < Page.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => setIndex(Index + 1)}>次へ</Button>}
+        {Index > 0 && <Button id='ButtonPrev' variant="success" onClick={() => {setIndex(Index - 1); SetPageOnUri(Index - 1)}}>前へ</Button>}
+        {Index < Page.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => {setIndex(Index + 1); SetPageOnUri(Index + 1)}}>次へ</Button>}
       </div>
     </Layout>
   );
