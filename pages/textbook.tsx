@@ -33,23 +33,21 @@ const IndexPage = () => {
     }
     setIndex(page_number);
     let title = Page[page_number].title;
-    if (isProd) {
+    try {
       await fetch(`/textbook/${title}.html`)
-        .then(response => response.text())
-        .then(text => {setHtml(text)});
-      await fetch(`/textbook.script/${title}.js`)
-        .then(response => response.text())
-        .then(text => eval(text));
-    } else {
-      await fetch(`/textbook/${title}.html`)
-        .then(response => response.text())
-        .then(text => setHtml(text.replaceAll('/SC2022/textbook.img', '/textbook.img')));
-      await fetch(`/textbook.script/${title}.js`)
       .then(response => response.text())
       .then(text => {
-        console.log(text);
-        eval(text);
+        if (isProd) {
+          setHtml(text);
+        } else {
+          setHtml(text.replaceAll('/SC2022/textbook.img', '/textbook.img'));
+        }
       });
+      await fetch(`/textbook.script/${title}.js`)
+      .then(response => response.text())
+      .then(text => eval(text));
+    } catch (error) {
+      console.log(error);
     }
   }
 
