@@ -20,7 +20,7 @@ const IndexPage = () => {
     history.pushState(null, '', `?page=${page}`);
   }
 
-  function PutHtml() {
+  async function PutHtml() {
     // Pageパラメタからページ番号を取得
     const uri = new URL(window.location.href);
     const page = uri.searchParams.get('page');
@@ -34,13 +34,22 @@ const IndexPage = () => {
     setIndex(page_number);
     let title = Page[page_number].title;
     if (isProd) {
-      fetch(`/textbook/${title}.html`)
+      await fetch(`/textbook/${title}.html`)
         .then(response => response.text())
-        .then(text => setHtml(text));
+        .then(text => {setHtml(text)});
+      await fetch(`/textbook.script/${title}.js`)
+        .then(response => response.text())
+        .then(text => eval(text));
     } else {
-      fetch(`/textbook/${title}.html`)
+      await fetch(`/textbook/${title}.html`)
         .then(response => response.text())
         .then(text => setHtml(text.replaceAll('/SC2022/textbook.img', '/textbook.img')));
+      await fetch(`/textbook.script/${title}.js`)
+      .then(response => response.text())
+      .then(text => {
+        console.log(text);
+        eval(text);
+      });
     }
   }
 
