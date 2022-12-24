@@ -63,6 +63,13 @@
     padding-left: 3rem;
     border-left: 3px gray double;
   }
+  table, .step {
+    ul, ol {
+      margin: 0.5rem 1.5rem;
+      padding-left: 0;
+      border-left: none;
+    }
+  }
   .scroll-x {
     overflow-x: auto;
   }
@@ -236,6 +243,44 @@
       cursor: pointer;
     }
   }
+	div.how {
+		background-color: rgba(lime, 0.15);
+		margin: 25px 0;
+		border: 1px grey solid;
+		padding: 25px;
+	}
+	.explanation {
+		margin: 25px 0;
+		padding: 25px;
+		border: 1px black solid;
+		background-color: #CCFFFF;
+		text-indent: 0;
+		font-size: 1rem;
+		&:before {
+			content: "";
+		}
+	}
+	div.exam {
+		font-size: 0.95rem;
+		margin: 25px 0;
+		padding: 1rem;
+		border: 1px grey solid;
+		background-color: rgb(240, 240, 240);
+	}
+  div.separator {
+		height: 1px;
+		background-color: lightgrey;
+		margin: 15px 0;
+	}
+  div.super_separator {
+    height: 3px;
+    background-color: lightgrey;
+    margin: 1rem 0;
+  }
+}
+
+.hidden {
+  display: none;
 }
 
 #ButtonPrev {
