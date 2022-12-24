@@ -11,6 +11,7 @@ const IndexPage = () => {
   let [Index, setIndex] = useState(0);
   let [Page, setPage] = useState(pages);
   let [Html, setHtml] = useState('');
+  let [Menu, setMenu] = useState(false);
 
   useEffect(() => {
     PutHtml();
@@ -61,6 +62,27 @@ const IndexPage = () => {
         {Index > 0 && <Button id='ButtonPrev' variant="success" onClick={() => {setIndex(Index - 1); SetPageOnUri(Index - 1); window.scroll({ top: 0, behavior: 'smooth' });}}>前へ</Button>}
         {Index < Page.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => {setIndex(Index + 1); SetPageOnUri(Index + 1); window.scroll({ top: 0, behavior: 'smooth' })}}>次へ</Button>}
       </div>
+      {Menu && <div id='Menu'>
+        <ul>
+          {Page.map((page, index) => {
+            return (
+              <li key={index}>
+                <Link
+                className={index === Index ? 'active' : ''}
+                href={{
+                  pathname: '/textbook',
+                  query: { page: index },
+                }}
+                // onClick={() => setMenu(false)}
+              >
+                {page.title}
+              </Link>
+            </li>)
+          })}
+        </ul>
+        <Button id='ButtonCloser' variant="secondary" size='sm' onClick={() => setMenu(false)}>閉じる</Button>
+      </div>}
+      {!Menu && <Button id='ButtonMenu' variant="secondary" onClick={() => setMenu(true)}>メニュー</Button>}
     </Layout>
   );
 }

@@ -49,6 +49,7 @@
   }
   img {
     display: block;
+    width: 100%;
     max-width: 600px;
     max-height: 600px;
     margin: 1rem 0;
@@ -316,6 +317,47 @@
   display: none;
 }
 
+#Menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 10rem;
+  color: yellow;
+  background-color: black;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  ul {
+    display: grid;
+    padding: 1rem;
+    @media screen and (max-width: 540px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: 541px) and (max-width: 1040px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (min-width: 1041px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    li {
+      margin: 0 1rem;
+      a {
+        color: yellow;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+        &.active {
+          color: white;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
 #ButtonPrev {
   position: fixed;
   bottom: 1rem;
@@ -326,4 +368,17 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
+}
+
+#ButtonMenu {
+  position: fixed;
+  bottom: 1rem;
+  left: 7rem;
+  margin: 0 auto;
+}
+
+#ButtonCloser {
+  position: fixed;
+  bottom: 9rem;
+  right: 0;
 }
