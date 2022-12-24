@@ -52,7 +52,7 @@ const IndexPage = () => {
   }
 
   return (
-    <Layout>
+    <Layout title={`${Page[Index].title} (情報処理安全確保支援士試験対策)`}>
       <div id='Textbook'>
         <h1>{Page[Index].title}</h1>
         <div dangerouslySetInnerHTML={ { __html: Html } } />
