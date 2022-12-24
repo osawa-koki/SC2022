@@ -1,4 +1,6 @@
 
+@import './template';
+
 #Textbook {
   max-width: 1200px;
   margin: 0 auto;
@@ -332,13 +334,13 @@
   ul {
     display: grid;
     padding: 1rem;
-    @media screen and (max-width: 540px) {
+    @include mq(sb) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @media screen and (min-width: 541px) and (max-width: 1040px) {
+    @include mq(tb) {
       grid-template-columns: repeat(3, 1fr);
     }
-    @media screen and (min-width: 1041px) {
+    @include mq(fb) {
       grid-template-columns: repeat(4, 1fr);
     }
     li {

@@ -2,7 +2,16 @@
 #Index {
   max-width: 1200px;
   margin: 0 auto;
-  h1 {
-    font-size: 2rem;
+  #MainTopic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-size: 2rem;
+    }
+    #Logo {
+      width: 100%;
+      max-width: 600px;
+    }
   }
 }
