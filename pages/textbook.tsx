@@ -67,18 +67,14 @@ const IndexPage = () => {
         <ul>
           {Page.map((page, index) => {
             return (
-              <li key={index}>
-                <Link
+              <li
+                key={index}
                 className={index === Index ? 'active' : ''}
-                href={{
-                  pathname: '/textbook',
-                  query: { page: index },
-                }}
-                // onClick={() => setMenu(false)}
+                onClick={() => {setIndex(index); SetPageOnUri(index); window.scroll({ top: 0, behavior: 'smooth' });}}
               >
                 {page.title}
-              </Link>
-            </li>)
+              </li>
+            )
           })}
         </ul>
         <Button id='ButtonCloser' variant="secondary" size='sm' onClick={() => setMenu(false)}>閉じる</Button>
