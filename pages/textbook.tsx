@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 
 import Layout from '../components/Layout';
@@ -31,6 +32,10 @@ const IndexPage = () => {
     <Layout>
       <div id='Textbook'>
         <div dangerouslySetInnerHTML={ { __html: Html } } />
+      </div>
+      <div>
+        {Index > 0 && <Button id='ButtonPrev' variant="success" onClick={() => setIndex(Index - 1)}>前へ</Button>}
+        {Index < Page.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => setIndex(Index + 1)}>次へ</Button>}
       </div>
     </Layout>
   );
