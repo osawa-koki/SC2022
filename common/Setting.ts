@@ -7,4 +7,4 @@ const Setting = {
   IMG_ROOT_PATH: isProd ? EnvInfo.assetPrefix : "",
 };
 
-export default Setting;
+export { Setting, isProd };
