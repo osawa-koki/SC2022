@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import Layout from '../components/Layout';
 import { pages } from '../data/pages';
-import { isProd } from '../common/Setting';
+import { isProd, Setting } from '../common/Setting';
 
 const IndexPage = () => {
 
@@ -34,8 +34,9 @@ const IndexPage = () => {
     }
     setIndex(page_number);
     let id = Page[page_number].id;
+    let prefix = isProd ? Setting.IMG_ROOT_PATH: '';
     try {
-      await fetch(`/textbook/${id}.html`)
+      await fetch(`${prefix}/textbook/${id}.html`)
       .then(response => response.text())
       .then(text => {
         if (isProd) {
@@ -44,7 +45,7 @@ const IndexPage = () => {
           setHtml(text.replaceAll('/SC2022/textbook.img', '/textbook.img'));
         }
       });
-      await fetch(`/textbook.script/${id}.js`)
+      await fetch(`${prefix}/textbook.script/${id}.js`)
       .then(response => response.text())
       .then(text => eval(text));
     } catch (error) {
