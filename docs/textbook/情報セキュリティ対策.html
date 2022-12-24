@@ -234,7 +234,7 @@
 		<ul>
 			<li><strong>R</strong>eliability(信頼性)</li>
 			<li><strong>A</strong>vailability(可用性)</li>
-			<li><strong>S</strong>erviceability(保守性)</li>		
+			<li><strong>S</strong>erviceability(保守性)</li>
 		</ul>
 	</div>
 	<div>
@@ -271,37 +271,6 @@
 		PCなどの情報処理をする機器が持ち出されないようにロックするワイヤーのことです。
 	</div>
 </div>
-<script type="text/javascript" charset="utf-8">
-	"use strict";
-	(() => {
-		let now = 0,
-			last = -1;
-		const s = document.getElementById("information-security_show"),
-			h = Array.from(s.children),
-			l = Array.from(document.getElementsByClassName("information-security_list"));
-		if (h.length === l.length) {
-			let i;
-			for (i = 0; i < h.length; i++) {
-				h[i].classList.add("hidden");
-				const e = document.createElement("div");
-				e.classList.add("title");
-				e.textContent = l[i].textContent;
-				h[i].insertBefore(e, h[i].firstChild);
-				l[i].addEventListener("click", function() {
-					try {
-						h[last].classList.add("hidden");
-					} catch {}
-					const n = l.indexOf(this);
-					l[n].classList.add("visited");
-					h[n].classList.add("explanation");
-					h[n].classList.remove("hidden");
-					last = n;
-					scroll(s);
-				});
-			}
-		}
-	})();
-</script>
 <h2>物理的攻撃手法</h2>
 上で物理的セキュリティに関して説明しましたが、代表的な物理的攻撃手法を2つ紹介しますね♪
 <div class="explanation">
