@@ -58,8 +58,8 @@ const IndexPage = () => {
         <div dangerouslySetInnerHTML={ { __html: Html } } />
       </div>
       <div>
-        {Index > 0 && <Button id='ButtonPrev' variant="success" onClick={() => {setIndex(Index - 1); SetPageOnUri(Index - 1)}}>前へ</Button>}
-        {Index < Page.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => {setIndex(Index + 1); SetPageOnUri(Index + 1)}}>次へ</Button>}
+        {Index > 0 && <Button id='ButtonPrev' variant="success" onClick={() => {setIndex(Index - 1); SetPageOnUri(Index - 1); window.scroll({ top: 0, behavior: 'smooth' });}}>前へ</Button>}
+        {Index < Page.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => {setIndex(Index + 1); SetPageOnUri(Index + 1); window.scroll({ top: 0, behavior: 'smooth' })}}>次へ</Button>}
       </div>
     </Layout>
   );
