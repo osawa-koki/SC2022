@@ -33,10 +33,10 @@ const IndexPage = () => {
       SetPageOnUri(page_number); // TODO: URLパラメタが更新されない。
     }
     setIndex(page_number);
-    let id = Page[page_number].id;
+    let title = Page[page_number].title;
     let prefix = isProd ? Setting.IMG_ROOT_PATH: '';
     try {
-      await fetch(`${prefix}/textbook/${id}.html`)
+      await fetch(`${prefix}/textbook/${title}.html`)
       .then(response => response.text())
       .then(text => {
         if (isProd) {
@@ -45,7 +45,7 @@ const IndexPage = () => {
           setHtml(text.replaceAll('/SC2022/textbook.img', '/textbook.img'));
         }
       });
-      await fetch(`${prefix}/textbook.script/${id}.js`)
+      await fetch(`${prefix}/textbook.script/${title}.js`)
       .then(response => response.text())
       .then(text => eval(text));
     } catch (error) {
