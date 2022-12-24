@@ -6,9 +6,21 @@
 }
 
 header {
-  padding: 1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3rem;
+  border-bottom: 1px lightgray solid;
+  background-color: rgba(white, 0.95);
   nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 1rem;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     a {
       margin-right: 1rem;
@@ -29,7 +41,7 @@ header {
 }
 
 main {
-  padding: 1rem;
+  padding: 3rem 1rem;
   min-height: 500px;
 }
 
