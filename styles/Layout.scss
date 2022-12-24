@@ -1,4 +1,6 @@
 
+@import './template';
+
 * {
   margin: 0;
   padding: 0;
@@ -43,7 +45,15 @@ header {
     top: 0;
     right: 1rem;
     bottom: 0;
-    width: 300px;
+    @include mq(sb) {
+      width: 100px;
+    }
+    @include mq(tb) {
+      width: 200px;
+    }
+    @include mq(fb) {
+      width: 300px;
+    }
     margin: auto;
   }
 }
