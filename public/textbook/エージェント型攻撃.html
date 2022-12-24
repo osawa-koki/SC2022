@@ -445,7 +445,7 @@ MITM攻撃とは「Man In The Browser Attack」の略で、攻撃者は<span cla
 <div class="explanation">
 	<div class="title">カミンスキー攻撃</div>
 	Dan Kaminskyによって発表されたDNSキャッシュポイズニング攻撃の一種です。<br />プレーンDNSキャッシュポイズニング攻撃に比べて大量の試行が可能であり、セキュリティ対策が必須である状態です。<br /><br />以下で、カミンスキー攻撃の手順について説明します。
-	<ol class="bg-white">
+	<ol>
 		<li>攻撃者が標的のDNSサーバに対して、攻撃対象のドメイン名(example.com)の存在しないサブドメイン名(dummy.example.com)によるFQDNの名前解決要求を行う。</li>
 		<li>標的となったDNSサーバは当然、自身が知らないFQDNであるため上位のDNSサーバに対して問い合わせる。</li>
 		<li>攻撃者は「2」の問い合わせに対する応答より先に、偽の名前解決応答を返します。</li>
