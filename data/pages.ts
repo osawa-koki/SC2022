@@ -1,5 +1,5 @@
 
-const pages = [
+const _pages = [
   'インデックス',
   '情報セキュリティ',
   '脅威と脆弱性',
@@ -43,6 +43,13 @@ const pages = [
   'サービスマネジメント',
   'システム監査',
   '補足',
-]
+];
+
+type Page = {
+  index: number;
+  title: string;
+};
+
+const pages: Page[] = _pages.map((title, index) => ({ index, title }));
 
 export { pages };
