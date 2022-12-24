@@ -54,6 +54,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <div id='Textbook'>
+        <h1>{Page[Index].title}</h1>
         <div dangerouslySetInnerHTML={ { __html: Html } } />
       </div>
       <div>
