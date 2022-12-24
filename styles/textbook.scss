@@ -345,16 +345,15 @@
     }
     li {
       margin: 0 1rem;
-      a {
-        color: yellow;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-        &.active {
-          color: white;
-          pointer-events: none;
-        }
+      color: yellow;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+      &.active {
+        color: white;
+        pointer-events: none;
       }
     }
   }
