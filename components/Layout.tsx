@@ -1,16 +1,18 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Setting } from '../common/Setting';
 
 type Props = {
   children?: ReactNode,
   title?: string,
+  progress?: number,
 };
 
 const default_title = '情報処理安全確保支援士試験対策';
 
-const Layout = ({ children, title = default_title }: Props) => (
+const Layout = ({ children, title = default_title, progress }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -24,6 +26,7 @@ const Layout = ({ children, title = default_title }: Props) => (
         <Link href="/textbook">教科書</Link>
         {/* <Link href="/kako-am2">過去問午前Ⅱ</Link> */}
       </nav>
+      { progress !== undefined && <ProgressBar id='Progress' now={progress} label={`${progress}%`} /> }
     </header>
     <main>
       {children}

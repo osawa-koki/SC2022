@@ -52,7 +52,7 @@ const IndexPage = () => {
   }
 
   return (
-    <Layout title={`${Page[Index].title} (情報処理安全確保支援士試験対策)`}>
+    <Layout title={`${Page[Index].title} (情報処理安全確保支援士試験対策)`} progress={Math.floor(Index / (pages.length - 1) * 100)}>
       <div id='Textbook'>
         <h1>{Page[Index].title}</h1>
         <div dangerouslySetInnerHTML={ { __html: Html } } />
