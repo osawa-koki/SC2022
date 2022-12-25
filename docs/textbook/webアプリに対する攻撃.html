@@ -285,17 +285,6 @@ CSRFとは、、、<br /><br />クロスサイトリクエストフォージェ�
 		</tr>
 	</tbody>
 </table>
-<script type="text/javascript" charset="utf-8">
-	"use strict";
-	const os = document.getElementsByClassName("os");
-	document.getElementById("os-injection_select").addEventListener("change", function() {
-		const v = this.value;
-		Array.from(os).forEach(e => {
-			e.classList.add("hidden");
-		});
-		document.getElementById(v).classList.remove("hidden");
-	});
-</script>
 <div class="step">
 	<ul>
 		<li>極力、OSコマンドの呼び出しを行わない。</li>
@@ -375,15 +364,6 @@ webサイトにiframeなどで他のwebサイトを表示してそれを透明�
 <iframe title="frame" id="iframe1" src="/"></iframe>
 ちなみに、透明度を0.001にした場合はこんな感じになります。↓↓↓<br />まず識別不可能ですよね、、、(´;ω;｀)<br />この上にユーザを騙す装飾をしてユーザに不正な操作をさせるのがクリックジャッキングです。
 <iframe title="frame" id="iframe2" src="/"></iframe>
-<script type="text/javascript" charset="utf-8">
-	"use strict";
-	const ifm = Array.from(document.getElementsByTagName("iframe")),
-		w = document.getElementsByTagName("main")[0].clientWidth;
-	ifm.forEach(e => {
-		e.setAttribute("width", (500 < w) ? w * 0.5 : 300);
-		e.setAttribute("height", w * 0.5);
-	});
-</script>
 <div class="step">
 	<ul>
 		<li>X-FRAME-OPTIONSを「DENY」「SAMEORIGIN」に設定する。</li>
@@ -397,40 +377,6 @@ IPAはしっかりとX-FRAME-OPTIONSを「SAMEORIGIN」に設定しているた�
 <div id="drive-where"></div>
 <h2>ドライブバイダウンロード</h2>
 webサイトを閲覧しただけで、マルウェアをダウンロードさせる攻撃方法です。<br /><br />最初の確認画面でチェックを入れた方は、このセクションに到達する際に自動的にファイルをダウンロードさせられたと思います。<br /><small>モバイル端末だと確認画面が入るかな???</small><br />皆さんがダウンロードしたファイルはただの画像ファイルですので安心してください。<br /><br />こんな感じでwebサイトを訪問しただけで悪意のマルウェアをダウンロードさせる攻撃方法がドライブバイダウンロードです。
-<script type="text/javascript" charset="utf-8">
-	function downloadImage() {
-		const src = "drive-by-download.png";
-		let xhr = new XMLHttpRequest();
-		xhr.open("GET", src, true);
-		xhr.responseType = "blob";
-		xhr.onload = downloadImageToLocal;
-		xhr.send();
-	}
-	function downloadImageToLocal() {
-		let dlLink = document.createElement("a");
-		const dataUrl = URL.createObjectURL(this.response);
-		dlLink.href = dataUrl;
-		const fileName = `koko-campus(drive-by-download).png`;
-		dlLink.download = fileName;
-		document.body.insertAdjacentElement("beforeEnd", dlLink);
-		dlLink.click();
-		dlLink.remove();
-	}
-	window.addEventListener("load", function() {
-		let drive_ok = true;
-		const where = document.getElementById("drive-where").getBoundingClientRect().top;
-		window.addEventListener("scroll", () => {
-			const scrolled = window.scrollY;
-			if (where < scrolled && drive_ok) {
-				const checked = document.getElementById("check_drive").checked;
-				if (checked) {
-					drive_ok = false;
-					downloadImage();
-				}
-			}
-		})
-	})
-</script>
 <div class="step">
 	<ul>
 		<li>FTPアカウントを適切に管理する。(サーバサイド)</li>

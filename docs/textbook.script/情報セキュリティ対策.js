@@ -1,10 +1,9 @@
 
 (() => {
-  console.log(111);
   const scroll = (doc, speed = 50, propotion = 4) => {
-    const scrolled = window.scrollY,
-      height = window.innerHeight / propotion,
-      between = doc.getBoundingClientRect().top + window.pageYOffset - scrolled - height;
+    const scrolled = window.scrollY;
+    const height = window.innerHeight / propotion;
+    const between = doc.getBoundingClientRect().top + window.pageYOffset - scrolled - height;
     let count = 0;
     const interval_id = setInterval(() => {
       count++;

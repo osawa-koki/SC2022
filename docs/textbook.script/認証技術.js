@@ -1,8 +1,8 @@
 
 (() => {
   // Kerberos
-  const d = document.getElementById("arws").getElementsByTagName("path"),
-    info = document.getElementById("kerberos-info");
+  const d = document.getElementById("arws").getElementsByTagName("path");
+  const info = document.getElementById("kerberos-info");
   function reset() {
     Array.from(d).forEach(e => {
       e.style.fill = "none";
@@ -11,8 +11,8 @@
     info.textContent = "";
   }
   reset();
-  let x_lock = false,
-    now = 0;
+  let x_lock = false;
+  let now = 0;
   const message = [
     "クライアントがAS(認証サーバ)に対してTGT(チケット交付チケット)を要求します。",
     "AS(認証サーバ)はKDBに保存されている情報からクライアントを認証し、認証に成功したらTGT(チケット交付チケット)を発行します。",
@@ -45,8 +45,8 @@
 
 (() => {
   // SSO
-  const d = document.getElementById("arrows").getElementsByTagName("g"),
-    info = document.getElementById("saml-info");
+  const d = document.getElementById("arrows").getElementsByTagName("g");
+  const info = document.getElementById("saml-info");
   function reset() {
     Array.from(d).forEach(e => {
       e.style.fill = "none";
@@ -55,8 +55,8 @@
     info.textContent = "";
   }
   reset();
-  let x_lock = false,
-    now = 0;
+  let x_lock = false;
+  let now = 0;
   const message = [
     "クライアントがSP(Service Provider)に対してアクセス要求をします。",
     "SPはIdPにリダイレクトして、認証を要求します。(SAML Request)",

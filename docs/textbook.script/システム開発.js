@@ -1,9 +1,9 @@
 
 (() => {
   // V字モデル開発
-  const bx = Array.from(document.getElementById("v-boxes").children),
-    info = document.getElementById("v-model-info"),
-    arws = Array.from(document.getElementById("arws").children);
+  const bx = Array.from(document.getElementById("v-boxes").children);
+  const info = document.getElementById("v-model-info");
+  const arws = Array.from(document.getElementById("arws").children);
   function reset() {
     bx.forEach(e => {
       e.getElementsByTagName("rect")[0].style.stroke = "aqua";
@@ -15,8 +15,8 @@
     info.innerHTML = "";
   }
   reset();
-  let count = 0,
-    x_lock = false;
+  let count = 0;
+  let x_lock = false;
   const message = [
     "システム全体が実現すべき要件を確認します♪",
     "システム要件定義を満たすための設計を最上位レベル(ハードウェア・ソフトウェアレベル)で決定します♪",
@@ -33,8 +33,8 @@
   document.getElementById("v-model-button").addEventListener("click", () => {
     if (!x_lock) {
       x_lock = true;
-      const r = bx[count].getElementsByTagName("rect")[0],
-        t = bx[count].getElementsByTagName("text")[0];
+      const r = bx[count].getElementsByTagName("rect")[0];
+      const t = bx[count].getElementsByTagName("text")[0];
       try {
         bx[count - 1].getElementsByTagName("rect")[0].style.stroke = "aqua";
         bx[count - 1].getElementsByTagName("text")[0].style.fill = "black";

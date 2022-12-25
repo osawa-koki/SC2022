@@ -1,8 +1,8 @@
 
 (() => {
   // 名前解決
-  const arws = Array.from(document.getElementById("dns-arrows").children),
-    info = document.getElementById("dns-info");
+  const arws = Array.from(document.getElementById("dns-arrows").children);
+  const info = document.getElementById("dns-info");
   function reset() {
     arws.forEach(e => {
       e.style.fill = "none";
@@ -21,8 +21,8 @@
     "第二レベルドメイン(.co .ac .go)を管理するDNSサーバはこれに対して第三レベルドメインを管理するDNSサーバに関する情報を返します。",
     "キャッシュサーバは最終的な名前解決の結果をリゾルバに返します。"
   ];
-  let count = 0,
-    x_lock = false;
+  let count = 0;
+  let x_lock = false;
   document.getElementById("dns-button").addEventListener("click", () => {
     if (!x_lock) {
       x_lock = true;
@@ -47,30 +47,30 @@
 
 (() => {
   // URIの構造
-  const s = Array.from(document.getElementById("fqdn").children),
-    info = document.getElementById("fqdn-info"),
-    title = [
-      "スキーム名",
-      "スキーム識別子",
-      "サブドメイン名",
-      "ホスト名",
-      "ポート番号",
-      "パス名",
-      "ファイル名",
-      "アンカー",
-      "URLパラメータ"
-    ],
-    message = [
+  const s = Array.from(document.getElementById("fqdn").children);
+  const info = document.getElementById("fqdn-info");
+  const title = [
+    "スキーム名",
+    "スキーム識別子",
+    "サブドメイン名",
+    "ホスト名",
+    "ポート番号",
+    "パス名",
+    "ファイル名",
+    "アンカー",
+    "URLパラメータ"
+  ];
+  const message = [
       "通信の手段(プロトコル)を指定します。<br />例) http https ftp",
-      "スキームを識別するための文字列です。",
-      "ホストを小さな単位へ分割した際のその名前です。",
-      "インターネット上のホストを指定します。",
-      "使用するポート番号(サービス)を指定します。",
-      "指定する資源までの道のり(パス)を指定します。",
-      "指定する資源の名前を指定します。<br />パスと合わせてファイル名とすることもあります。",
-      "ページ内の要素へのリンク(ページ内リンク)を意味します。",
-      "「?」以降はサーバへ送信するデータを指定します。<br />キーとバリューを「=」でつないでセットにして扱い、複数ある場合は「&amp;」で区切って表します。"
-    ];
+    "スキームを識別するための文字列です。",
+    "ホストを小さな単位へ分割した際のその名前です。",
+    "インターネット上のホストを指定します。",
+    "使用するポート番号(サービス)を指定します。",
+    "指定する資源までの道のり(パス)を指定します。",
+    "指定する資源の名前を指定します。<br />パスと合わせてファイル名とすることもあります。",
+    "ページ内の要素へのリンク(ページ内リンク)を意味します。",
+    "「?」以降はサーバへ送信するデータを指定します。<br />キーとバリューを「=」でつないでセットにして扱い、複数ある場合は「&amp;」で区切って表します。"
+  ];
   let last;
   s.forEach(e => {
     e.addEventListener("click", function() {

@@ -53,7 +53,6 @@
     display: block;
     width: 100%;
     max-width: 600px;
-    max-height: 600px;
     margin: 1rem 0;
   }
   iframe {
@@ -74,7 +73,7 @@
       border-left: none;
     }
   }
-  .scroll-x {
+  .scroll-600w {
     overflow-x: auto;
   }
 	.button {
@@ -143,7 +142,6 @@
     padding: 50px 15px 15px 15px;
     background-color: rgb(255, 255, 220);
     border: 1px black solid;
-    text-indent: 1rem !important;
     font-size: 1rem;
     &:before {
       content: "対策" !important;
@@ -164,7 +162,6 @@
   svg {
     display: block;
     max-width: 600px;
-    max-height: 600px;
     .pc {
       fill:#000000;fill-opacity:1;stroke:none;
     }
@@ -333,6 +330,7 @@
   color: yellow;
   background-color: black;
   overflow-y: auto;
+  scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
