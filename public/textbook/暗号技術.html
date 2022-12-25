@@ -326,42 +326,6 @@
 	<text x="110" y="380" font-family="Consolas" font-size="14px" style="fill: aqua;">共通鍵の数</text>
 	<text x="220" y="380" font-family="Consolas" font-size="14px" style="fill: lime;">暗号鍵の数</text>
 </svg>
-<script type="text/javascript" charset="utf-8">
-	(() => {
-		const x_from = 50,
-			x_upto = 550,
-			x_diff = x_upto - x_from,
-			y_from = 50,
-			y_upto = 350,
-			y_diff = y_upto - y_from,
-			x_from_ = 0,
-			x_upto_ = 30,
-			x_diff_ = x_upto_ - x_from_,
-			y_from_ = 0,
-			y_upto_ = 80,
-			y_diff_ = y_upto_ - y_from_;
-		(() => {
-			const k = document.getElementById("p_key-curve");
-			let pts = "",
-				i;
-			for (i = x_from_; i <= x_upto_; i++) {
-				pts += (i * x_diff / x_diff_ + x_from).toString() + ", ";
-				pts += (y_upto - (i * 2) * y_diff / y_diff_).toString() + " ";
-			}
-			k.setAttribute("points", pts);
-		})();
-		(() => {
-			const k = document.getElementById("c_key-curve");
-			let pts = "",
-				i;
-			for (i = x_from_; i <= x_upto_; i++) {
-				pts += (i * x_diff / x_diff_ + x_from).toString() + ", ";
-				pts += (y_upto - (i * (i - 1) / 2) * y_diff / y_diff_).toString() + " ";
-			}
-			k.setAttribute("points", pts);
-		})();
-	})();
-</script>
 n=5の時に両者は10で等しくなり、nがそれより大きいと共通鍵暗号方式の鍵の数は準階乗方式で増えていきます。
 <h2>ハイブリッド暗号方式</h2>
 共通鍵暗号方式と公開鍵暗号方式を組み合わせた方式(ハイブリッド/hybrid)です。<br /><br />データの暗号化には共通鍵暗号方式を用います。<br />共通鍵暗号方式の欠点である鍵の安全な送信が困難という問題については、公開鍵暗号方式を用いて暗号化して送信する方法です。
