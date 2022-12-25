@@ -3,7 +3,7 @@
 情報処理安全確保支援士試験(2022年)用の学習用サイト。  
 Next.jsで作成してみた。  
 
-もともと<https://koko-campus.org>にあったものの一部をNextで置き換えて独立させた。  
+もともと<https://koko-campus.org>にあったものの一部をNext.jsで置き換えて独立させた。  
 ※ 元のソースコードは<https://github.com/osawa-koki/koko-campus.net>(private)  
 
 ## 実行方法
