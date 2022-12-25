@@ -47,9 +47,7 @@ const IndexPage = () => {
       await fetch(`${prefix}/textbook.script/${title}.js`)
       .then(response => response.text())
       .then(text => eval(text));
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
 
   return (
