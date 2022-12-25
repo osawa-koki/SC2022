@@ -330,6 +330,7 @@
   color: yellow;
   background-color: black;
   overflow-y: auto;
+  scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
