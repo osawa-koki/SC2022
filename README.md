@@ -21,4 +21,4 @@ yarn build
 | モジュール | バージョン |
 | ---- | ---- |
 | Windows | 11 Home |
-| Node.js | 16.18.0 |
+| Node.js | 19.3.0 |
