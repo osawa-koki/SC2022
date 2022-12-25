@@ -89,8 +89,8 @@ const SVGanimation = arg => {
 
 (() => {
   // ディジタル署名
-  const d = document.getElementsByClassName("d"),
-    info = document.getElementById("d_sign-info");
+  const d = document.getElementsByClassName("d");
+  const info = document.getElementById("d_sign-info");
   function reset() {
     Array.from(d).forEach(e => {
       e.style.fill = "none";
@@ -127,8 +127,8 @@ const SVGanimation = arg => {
     })();
   }
   reset();
-  let x_lock = false,
-    now = 0;
+  let x_lock = false;
+  let now = 0;
   document.getElementById("d_sign-button").addEventListener("click", () => {
     if (!x_lock) {
       x_lock = true;
@@ -237,8 +237,8 @@ const SVGanimation = arg => {
 
 (() => {
   // タイムスタンプ
-  const d = document.getElementsByClassName("hd"),
-    info = document.getElementById("timestamp-info");
+  const d = document.getElementsByClassName("hd");
+  const info = document.getElementById("timestamp-info");
   function reset() {
     Array.from(d).forEach(e => {
       e.style.fill = "none";
@@ -250,8 +250,8 @@ const SVGanimation = arg => {
     document.getElementById("dcmt").getElementsByTagName("path")[0].style.fill = "white";
   }
   reset();
-  let count = 0,
-    x_lock = false;
+  let count = 0;
+  let x_lock = false;
   document.getElementById("timestamp-button").addEventListener("click", () => {
     if (!x_lock) {
       x_lock = true;
@@ -306,8 +306,8 @@ const SVGanimation = arg => {
 
 (() => {
   // チャレンジレスポンス認証
-  const d = document.getElementsByClassName("tp"),
-    info = document.getElementById("cr-info");
+  const d = document.getElementsByClassName("tp");
+  const info = document.getElementById("cr-info");
   function reset() {
     Array.from(d).forEach(e => {
       e.style.fill = "none";
@@ -322,8 +322,8 @@ const SVGanimation = arg => {
     info.textContent = "";
   }
   reset();
-  let count = 0,
-    x_lock = false;
+  let count = 0;
+  let x_lock = false;
   document.getElementById("cr-button").addEventListener("click", () => {
     if (!x_lock) {
       x_lock = true;
