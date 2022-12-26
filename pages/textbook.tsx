@@ -28,6 +28,7 @@ const IndexPage = () => {
     // ページが有効であれば
     if (page && !isNaN(Number(page)) && Number(page) >= 0 && Number(page) < Page.length) {
       page_number = Number(page);
+      setIndex(page_number);
     } else {
       SetPageOnUri(page_number); // TODO: URLパラメタが更新されない。
     }
