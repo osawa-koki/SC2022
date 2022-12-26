@@ -8,7 +8,6 @@ import { isProd, Setting } from '../common/Setting';
 const IndexPage = () => {
 
   let [Index, setIndex] = useState(0);
-  let [Page, setPage] = useState(pages);
   let [Html, setHtml] = useState('');
   let [Menu, setMenu] = useState(false);
 
@@ -26,13 +25,13 @@ const IndexPage = () => {
     const page = uri.searchParams.get('page');
     let page_number = 0;
     // ページが有効であれば
-    if (page && !isNaN(Number(page)) && Number(page) >= 0 && Number(page) < Page.length) {
+    if (page && !isNaN(Number(page)) && Number(page) >= 0 && Number(page) < pages.length) {
       page_number = Number(page);
       setIndex(page_number);
     } else {
       SetPageOnUri(page_number); // TODO: URLパラメタが更新されない。
     }
-    let title = Page[page_number].title;
+    let title = pages[page_number].title;
     let prefix = isProd ? Setting.IMG_ROOT_PATH: '';
     try {
       await fetch(`${prefix}/textbook/${title}.html`)
@@ -51,18 +50,18 @@ const IndexPage = () => {
   }
 
   return (
-    <Layout title={`${Page[Index].title} (情報処理安全確保支援士試験対策)`} progress={Math.floor(Index / (pages.length - 1) * 100)}>
+    <Layout title={`${pages[Index].title} (情報処理安全確保支援士試験対策)`} progress={Math.floor(Index / (pages.length - 1) * 100)}>
       <div id='Textbook'>
-        <h1>{Page[Index].title}</h1>
+        <h1>{pages[Index].title}</h1>
         <div dangerouslySetInnerHTML={ { __html: Html } } />
       </div>
       <div>
         {Index > 0 && <Button id='ButtonPrev' variant="success" onClick={() => {setIndex(Index - 1); SetPageOnUri(Index - 1); window.scroll({ top: 0, behavior: 'smooth' });}}>前へ</Button>}
-        {Index < Page.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => {setIndex(Index + 1); SetPageOnUri(Index + 1); window.scroll({ top: 0, behavior: 'smooth' })}}>次へ</Button>}
+        {Index < pages.length - 1 && <Button id='ButtonNext' variant="primary" onClick={() => {setIndex(Index + 1); SetPageOnUri(Index + 1); window.scroll({ top: 0, behavior: 'smooth' })}}>次へ</Button>}
       </div>
       {Menu && <div id='Menu'>
         <ul>
-          {Page.map((page, index) => {
+          {pages.map((page, index) => {
             return (
               <li
                 key={index}
