@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
-import Link from 'next/link';
 
 import Layout from '../components/Layout';
 import { pages } from '../data/pages';
